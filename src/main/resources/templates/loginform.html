@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+
+<div class="container text-center">
+    <div>
+        <h1>User Login And Sign Up</h1>
+    </div>
+    <form th:action="@{/login_submit}" th:object="${user}"
+          method="post" style="max-width: 600px; margin: 0 auto;">
+    <div class="form-group row">
+        <label class="col-4 col-form-label">E-mail: </label>
+        <div class="col-8">
+            <input type="email" th:field="*{email}" class="form-control"/>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-4 col-form-label">Password: </label>
+        <div class="col-8">
+            <input type="password" th:field="*{password}" class="form-control"
+                   required minlength="6" maxlength="10"/>
+        </div>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+    </form>
+</div>
+
+<form method="get" action="signup">
+    <button type="submit">Sign Up</button>
+</form>
+</body>
+</html>
